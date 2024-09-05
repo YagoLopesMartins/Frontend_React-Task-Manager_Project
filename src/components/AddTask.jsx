@@ -1,3 +1,4 @@
+import Input from "./Input";
 import { useState } from "react";
 
 function AddTasks({ onAddTaskSubmit }) {
@@ -6,15 +7,13 @@ function AddTasks({ onAddTaskSubmit }) {
 
   return (
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
-      <input
-        className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
+      <Input
         type="text"
         placeholder="Digite um nome da task"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <input
-        className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
+      <Input
         type="text"
         placeholder="Digite uma descrição da task"
         value={description}
