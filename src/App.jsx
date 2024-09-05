@@ -1,31 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import AddTasks from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import { v4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Escovar os dentes",
-      description: "Escovar os dentes importante para um excelente saúde bucal",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Fazer café",
-      description: "A principal refeição do corpo humano é o café da manhã",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Estudar React",
-      description:
-        "A maioria das vags são com react, portanto muito mais fácil de se empregar",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
@@ -55,6 +37,10 @@ function App() {
     };
     setTasks([...tasks, newTask]);
   }
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
