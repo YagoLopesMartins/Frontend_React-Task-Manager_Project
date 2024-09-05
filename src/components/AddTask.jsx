@@ -22,7 +22,14 @@ function AddTasks({ onAddTaskSubmit }) {
       />
       <button
         className="bg-slate-500 text-white py-2 px-4 rounded-md font-medium"
-        onClick={() => onAddTaskSubmit(title, description)}
+        onClick={() => {
+          if (!title.trim() || !description.trim()) {
+            return alert("Prencha o titulo e a descrição ");
+          }
+          onAddTaskSubmit(title, description);
+          setTitle("");
+          setDescription("");
+        }}
       >
         Adicionar
       </button>
