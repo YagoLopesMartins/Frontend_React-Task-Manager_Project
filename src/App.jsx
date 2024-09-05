@@ -8,20 +8,21 @@ function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
-      title: "Task1",
-      description: "task1",
+      title: "Escovar os dentes",
+      description: "Escovar os dentes importante para um excelente saúde bucal",
       isCompleted: false,
     },
     {
       id: 2,
-      title: "Task2",
-      description: "task2",
+      title: "Fazer café",
+      description: "A principal refeição do corpo humano é o café da manhã",
       isCompleted: false,
     },
     {
       id: 3,
-      title: "Task3",
-      description: "task3",
+      title: "Estudar React",
+      description:
+        "A maioria das vags são com react, portanto muito mais fácil de se empregar",
       isCompleted: false,
     },
   ]);
